@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { execFile } = require("child_process");
 const { get } = require("https");
 const lernaPath = require.resolve("lerna/cli");
