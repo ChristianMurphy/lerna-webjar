@@ -1,0 +1,32 @@
+{
+  "name": "lerna-webjar",
+  "version": "1.0.0",
+  "description": "Automate deploying npm packages managed by lerna to webjars.org",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChristianMurphy/lerna-webjar.git"
+  },
+  "keywords": [
+    "lerna",
+    "webjars",
+    "publish",
+    "automate",
+    "automation"
+  ],
+  "author": "Christian Murphy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChristianMurphy/lerna-webjar/issues"
+  },
+  "homepage": "https://github.com/ChristianMurphy/lerna-webjar#readme",
+  "peerDependencies": {
+    "lerna": "*"
+  },
+  "devDependencies": {
+    "prettier": "^1.14.3"
+  }
+}
