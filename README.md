@@ -4,6 +4,12 @@ Automate deploying npm packages managed by lerna to webjars.org
 
 :notebook: this relies on the package being released to npm before the webjar release is started.
 
+## Quick usage
+
+```sh
+npx lerna-webjar
+```
+
 ## Installation
 
 ```sh
