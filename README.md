@@ -1,5 +1,7 @@
 # lerna-webjar
 
+[![NPM Version](https://img.shields.io/npm/v/lerna-webjar.svg)](https://www.npmjs.com/package/lerna-webjar)
+
 Automate deploying npm packages managed by lerna to webjars.org
 
 :notebook: this relies on the package being released to npm before the webjar release is started.
