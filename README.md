@@ -8,10 +8,10 @@ Automate deploying npm packages managed by lerna to webjars.org
 
 ```sh
 # with npm
-npm install lerna-webjar
+npm install --save-dev lerna-webjar
 
 # or with yarn
-yarn add lerna-webjar
+yarn add --dev lerna-webjar
 ```
 
 ## Usage
