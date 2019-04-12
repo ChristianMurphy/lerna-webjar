@@ -1,6 +1,6 @@
 {
   "name": "lerna-webjar",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Automate deploying npm packages managed by lerna to webjars.org",
   "main": "index.js",
   "bin": {
