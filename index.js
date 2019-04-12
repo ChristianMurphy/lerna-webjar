@@ -1,18 +1,34 @@
 #!/usr/bin/env node
 
 const { execFile } = require("child_process");
-const { get } = require("https");
+const { promisify } = require("util");
 const lernaPath = require.resolve("lerna/cli");
+const ky = require("ky-universal");
+const Listr = require("listr");
+const qs = require("qs");
 
-execFile(lernaPath, ["list", "--json"], (err, stdOut) =>
-  JSON.parse(stdOut).forEach(({ name, version }) =>
-    get(
-      `https://www.webjars.org/deploy?webJarType=npm&nameOrUrlish=${name}&version=${version}`,
-      res => {
-        console.log(`started release for ${name}`);
-        res.on("error", console.error);
-        res.on("end", () => console.log(`done publishing ${name}`));
-      }
-    )
-  )
-);
+const execFileP = promisify(execFile);
+
+execFileP(lernaPath, ["list", "--json"])
+  .then(out => {
+    return JSON.parse(out.stdout).map(({ name, version }) => {
+      return {
+        title: `publishing ${name}`,
+        task: () =>
+          ky
+            .get(
+              `https://www.webjars.org/deploy?${qs.stringify({
+                webJarType: "npm",
+                nameOrUrlish: name,
+                version
+              })}`
+            )
+            .text()
+      };
+    });
+  })
+  .then(taskList => {
+    const taskCLI = new Listr(taskList, { concurrent: true });
+    return taskCLI.run();
+  })
+  .catch(console.error);
