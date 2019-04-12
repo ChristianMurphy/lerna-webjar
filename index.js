@@ -28,6 +28,18 @@ execFileP(lernaPath, ["list", "--json"])
               }
             )
             .text()
+            .then(text => {
+              // fail if webjar cannot be published due to a license
+              if (
+                /All attempts to determine an acceptable license have been exhausted/.test(
+                  text
+                )
+              ) {
+                throw new Error("Invalid license, unable to publish");
+              }
+
+              return text;
+            })
       };
     });
   })
