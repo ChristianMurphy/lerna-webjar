@@ -16,10 +16,10 @@ npx lerna-webjar
 
 ```sh
 # with npm
-npm install --save-dev lerna-webjar
+npm install --save-dev lerna lerna-webjar
 
 # or with yarn
-yarn add --dev lerna-webjar
+yarn add --dev lerna lerna-webjar
 ```
 
 ## Usage

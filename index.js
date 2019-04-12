@@ -21,14 +21,21 @@ execFileP(lernaPath, ["list", "--json"])
                 webJarType: "npm",
                 nameOrUrlish: name,
                 version
-              })}`
+              })}`,
+              {
+                // wait up to 20 minutes
+                timeout: 1200000
+              }
             )
             .text()
       };
     });
   })
   .then(taskList => {
-    const taskCLI = new Listr(taskList, { concurrent: true });
+    const taskCLI = new Listr(taskList, {
+      concurrent: true,
+      exitOnError: false
+    });
     return taskCLI.run();
   })
   .catch(console.error);
