@@ -27,13 +27,13 @@
     "lerna": "*"
   },
   "devDependencies": {
-    "lerna": "^3.13.2",
-    "prettier": "^1.14.3"
+    "lerna": "^3.20.0",
+    "prettier": "^1.19.1"
   },
   "dependencies": {
-    "ky": "^0.9.1",
-    "ky-universal": "^0.1.0",
+    "ky": "^0.16.1",
+    "ky-universal": "^0.3.0",
     "listr": "^0.14.3",
-    "qs": "^6.7.0"
+    "qs": "^6.9.1"
   }
 }
